@@ -1,0 +1,423 @@
+<!-- game-detail.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Adı - Oyun Dünyası</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">Oyun Dünyası</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="#">Kategoriler</a></li>
+                    <li><a href="#">En Popüler</a></li>
+                    <li><a href="#">Yeni Eklenenler</a></li>
+                    <li><a href="#">İletişim</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Oyun ara...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="#">Kategori</a></li>
+                <li>Oyun Adı</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="game-detail">
+        <div class="container">
+            <div class="game-header">
+                <div class="game-cover">
+                    <img src="/api/placeholder/400/300" alt="Oyun Adı">
+                </div>
+                <div class="game-info">
+                    <h1>Oyun Adı</h1>
+                    <div class="meta">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </div>
+                        <div class="category">
+                            <span class="label">Kategori:</span>
+                            <span class="value">Aksiyon, Macera</span>
+                        </div>
+                        <div class="plays">
+                            <span class="label">Oynanma:</span>
+                            <span class="value">12,345 kez</span>
+                        </div>
+                        <div class="added">
+                            <span class="label">Eklenme Tarihi:</span>
+                            <span class="value">15 Nisan 2025</span>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p>Bu heyecan verici oyunda macera dolu bir dünyaya adım atacaksınız. Zorlu görevleri tamamlayarak puanlar kazanın ve liderlik tablosunda yerinizi alın. Muhteşem grafikler ve sürükleyici hikaye ile kendinizi kaybedeceksiniz.</p>
+                        <p>Bu oyun çeşitli zorluk seviyeleri ve farklı oyun modları sunmaktadır. Arkadaşlarınızla birlikte oynayabilir veya tek başınıza maceranın tadını çıkarabilirsiniz.</p>
+                    </div>
+                    <div class="actions">
+                        <button class="btn play-now">Şimdi Oyna</button>
+                        <button class="btn add-favorite"><i class="far fa-heart"></i> Favorilere Ekle</button>
+                        <button class="btn share"><i class="fas fa-share-alt"></i> Paylaş</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="about">Oyun Hakkında</button>
+                    <button class="tab-btn" data-tab="instructions">Nasıl Oynanır</button>
+                    <button class="tab-btn" data-tab="comments">Yorumlar</button>
+                    <button class="tab-btn" data-tab="similar">Benzer Oyunlar</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="about">
+                        <h3>Oyun Açıklaması</h3>
+                        <p>Bu oyun, heyecan verici bir macera ve aksiyon dolu bir deneyim sunmaktadır. Karakterinizi yönetirken çeşitli görevleri tamamlayacak, engelleri aşacak ve düşmanlarla mücadele edeceksiniz.</p>
+                        
+                        <p>Oyun özellikleri:</p>
+                        <ul>
+                            <li>Etkileyici grafikler ve ses efektleri</li>
+                            <li>Sürükleyici hikaye modu</li>
+                            <li>Çoklu oyuncu desteği</li>
+                            <li>Farklı zorluk seviyeleri</li>
+                            <li>Çeşitli bölümler ve görevler</li>
+                            <li>Karakter geliştirme sistemi</li>
+                        </ul>
+                        
+                        <h3>Sistem Gereksinimleri</h3>
+                        <div class="system-req">
+                            <div class="minimum">
+                                <h4>Minimum</h4>
+                                <ul>
+                                    <li>İşletim Sistemi: Windows 10</li>
+                                    <li>İşlemci: Intel Core i3</li>
+                                    <li>RAM: 4 GB</li>
+                                    <li>Ekran Kartı: NVIDIA GeForce GTX 760</li>
+                                    <li>Depolama: 2 GB boş alan</li>
+                                </ul>
+                            </div>
+                            <div class="recommended">
+                                <h4>Önerilen</h4>
+                                <ul>
+                                    <li>İşletim Sistemi: Windows 10/11</li>
+                                    <li>İşlemci: Intel Core i5</li>
+                                    <li>RAM: 8 GB</li>
+                                    <li>Ekran Kartı: NVIDIA GeForce GTX 1060</li>
+                                    <li>Depolama: 5 GB boş alan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="instructions">
+                        <h3>Nasıl Oynanır</h3>
+                        <div class="instructions">
+                            <div class="controls">
+                                <h4>Kontroller</h4>
+                                <ul>
+                                    <li><strong>W, A, S, D:</strong> Karakteri hareket ettir</li>
+                                    <li><strong>Fare:</strong> Kamera kontrolü</li>
+                                    <li><strong>Sol Tık:</strong> Ateş et / Etkileşim</li>
+                                    <li><strong>Sağ Tık:</strong> Nişan al</li>
+                                    <li><strong>E:</strong> Eşya topla / Kullan</li>
+                                    <li><strong>Space:</strong> Zıpla</li>
+                                    <li><strong>Shift:</strong> Koş</li>
+                                    <li><strong>Q:</strong> Özel yetenek</li>
+                                    <li><strong>R:</strong> Yeniden doldur</li>
+                                    <li><strong>ESC:</strong> Menü</li>
+                                </ul>
+                            </div>
+                            <div class="gameplay">
+                                <h4>Oynanış</h4>
+                                <ol>
+                                    <li>Oyuna başlamak için "Oyna" butonuna tıklayın.</li>
+                                    <li>Görevleri tamamlayarak puan kazanın.</li>
+                                    <li>Düşmanları yenin ve engelleri aşın.</li>
+                                    <li>Eşyaları toplayarak karakterinizi güçlendirin.</li>
+                                    <li>Mağazadan yeni ekipmanlar ve yetenekler satın alın.</li>
+                                    <li>Arkadaşlarınızla birlikte oynayarak daha fazla eğlenin.</li>
+                                    <li>Liderlik tablosunda yerinizi alın.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="tips">
+                            <h4>İpuçları ve Püf Noktaları</h4>
+                            <ul>
+                                <li>Her zaman çevrenizi kontrol edin ve muhtemel tehlikelere karşı hazırlıklı olun.</li>
+                                <li>Kaynakları akıllıca kullanın, her yerde bulunmayabilirler.</li>
+                                <li>Oyunun zorlu bölümlerinde strateji geliştirin.</li>
+                                <li>Farklı silahları ve yetenekleri duruma göre kullanın.</li>
+                                <li>Deneyim kazandıkça karakterinizi geliştirin.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="comments">
+                        <h3>Yorumlar <span class="comment-count">(12)</span></h3>
+                        <div class="comment-form">
+                            <h4>Yorum Yap</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Adınız</label>
+                                    <input type="text" id="name" placeholder="Adınız">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-posta (Yayınlanmayacak)</label>
+                                    <input type="email" id="email" placeholder="E-posta adresiniz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="rating">Puan</label>
+                                    <div class="rating-select">
+                                        <i class="far fa-star" data-rating="1"></i>
+                                        <i class="far fa-star" data-rating="2"></i>
+                                        <i class="far fa-star" data-rating="3"></i>
+                                        <i class="far fa-star" data-rating="4"></i>
+                                        <i class="far fa-star" data-rating="5"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment">Yorumunuz</label>
+                                    <textarea id="comment" placeholder="Yorumunuzu yazın..."></textarea>
+                                </div>
+                                <button type="submit" class="btn">Yorum Gönder</button>
+                            </form>
+                        </div>
+                        
+                        <div class="comments-list">
+                            <div class="comment">
+                                <div class="comment-avatar">
+                                    <img src="/api/placeholder/50/50" alt="Kullanıcı">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <h4>Ahmet Y.</h4>
+                                        <div class="comment-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="comment-date">15 Nisan 2025</span>
+                                    </div>
+                                    <div class="comment-text">
+                                        <p>Muhteşem bir oyun! Grafikleri ve hikayesi gerçekten etkileyici. Tüm arkadaşlarıma öneriyorum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comment">
+                                <div class="comment-avatar">
+                                    <img src="/api/placeholder/50/50" alt="Kullanıcı">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <h4>Ayşe K.</h4>
+                                        <div class="comment-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="comment-date">12 Nisan 2025</span>
+                                    </div>
+                                    <div class="comment-text">
+                                        <p>Oyun güzel ama bazı bölümlerde zorlanıyorum. Kontroller biraz daha iyi olabilirdi. Yine de eğlenceli.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comment">
+                                <div class="comment-avatar">
+                                    <img src="/api/placeholder/50/50" alt="Kullanıcı">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <h4>Mehmet S.</h4>
+                                        <div class="comment-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                        <span class="comment-date">10 Nisan 2025</span>
+                                    </div>
+                                    <div class="comment-text">
+                                        <p>Ortalama bir oyun. Daha iyi olabilirdi. Bazı hatalar var ve yüklemesi biraz uzun sürüyor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="load-more">
+                                <button class="btn">Daha Fazla Yorum Göster</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="similar">
+                        <h3>Benzer Oyunlar</h3>
+                        <div class="similar-games">
+                            <div class="games-grid">
+                                <div class="game-card">
+                                    <div class="game-image">
+                                        <img src="/api/placeholder/200/150" alt="Benzer Oyun 1">
+                                        <div class="overlay">
+                                            <button class="play-btn">Oyna</button>
+                                        </div>
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>Benzer Oyun 1</h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <span>4.0</span>
+                                        </div>
+                                        <p class="category">Aksiyon, Macera</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="game-card">
+                                    <div class="game-image">
+                                        <img src="/api/placeholder/200/150" alt="Benzer Oyun 2">
+                                        <div class="overlay">
+                                            <button class="play-btn">Oyna</button>
+                                        </div>
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>Benzer Oyun 2</h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <i class="far fa-star"></i>
+                                            <span>3.5</span>
+                                        </div>
+                                        <p class="category">Macera</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="game-card">
+                                    <div class="game-image">
+                                        <img src="/api/placeholder/200/150" alt="Benzer Oyun 3">
+                                        <div class="overlay">
+                                            <button class="play-btn">Oyna</button>
+                                        </div>
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>Benzer Oyun 3</h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>5.0</span>
+                                        </div>
+                                        <p class="category">Aksiyon</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="game-card">
+                                    <div class="game-image">
+                                        <img src="/api/placeholder/200/150" alt="Benzer Oyun 4">
+                                        <div class="overlay">
+                                            <button class="play-btn">Oyna</button>
+                                        </div>
+                                    </div>
+                                    <div class="game-info">
+                                        <h3>Benzer Oyun 4</h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span>4.5</span>
+                                        </div>
+                                        <p class="category">Aksiyon, Strateji</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Hakkımızda</h3>
+                    <p>Oyun Dünyası, 4000'den fazla oyun içeren Türkiye'nin en büyük çevrimiçi oyun platformudur.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul>
+                        <li><a href="#">Ana Sayfa</a></li>
+                        <li><a href="#">Oyunlar</a></li>
+                        <li><a href="#">Kategoriler</a></li>
+                        <li><a href="#">En Popüler</a></li>
+                        <li><a href="#">Yeni Eklenenler</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Adres: İstanbul, Türkiye</p>
+                    <p><i class="fas fa-phone"></i> Telefon: +90 123 456 78 90</p>
+                    <p><i class="fas fa-envelope"></i> E-posta: info@oyundunyasi.com</p>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Bülten</h3>
+                    <p>Güncellemeler için abone olun</p>
+                    <form>
+                        <input type="email" placeholder="E-posta adresiniz">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Oyun Dünyası - Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="game-detail.js"></script>
+</body>
+</html>
