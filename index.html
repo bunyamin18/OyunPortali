@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- Meta etiketleri - SEO ve görüntüleme ayarları -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Oyun Portalı - 4000'den fazla ücretsiz oyun!">
     <title>Oyun Portalı - 4000+ Ücretsiz Oyun</title>
     
-    <!-- Favicon - Site logosu tarayıcı sekmesinde gözükür -->
-    <link rel="icon" href="images/logo.png" type="image/png">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
     
-    <!-- CSS dosyası bağlantısı -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
     
-    <!-- Font Awesome - İkonlar için -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Üst navigasyon çubuğu -->
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loader"></div>
+        <p>Oyunlar yükleniyor...</p>
+    </div>
+
+    <!-- Navbar -->
     <header class="navbar">
         <div class="logo-container">
-            <img src="images/logo.png" alt="Oyun Portalı Logo" class="logo">
+            <img src="assets/images/logo.svg" alt="Oyun Portalı Logo" class="logo" width="50" height="50">
             <h1>Oyun Portalı</h1>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#home">Anasayfa</a></li>
+                <li><a href="#home" class="active">Anasayfa</a></li>
                 <li><a href="#categories">Kategoriler</a></li>
                 <li><a href="#popular">Popüler</a></li>
                 <li><a href="#new">Yeni Oyunlar</a></li>
@@ -35,56 +43,79 @@
             <input type="text" placeholder="Oyun ara..." id="search-input">
             <button id="search-btn"><i class="fas fa-search"></i></button>
         </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
-    <!-- Hero bölümü - Karşılama alanı -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h2>4000'den Fazla Ücretsiz Oyun!</h2>
-            <p>En sevdiğin oyunları tam ekran oyna, rekor kır, eğlen!</p>
-            <button class="cta-button">Hemen Oyna</button>
+            <p>Favori oyunlarını tam ekran oyna, rekor kır, eğlenceye katıl!</p>
+            <button class="cta-button" id="random-game-btn">Rastgele Oyun Başlat</button>
         </div>
     </section>
 
-    <!-- Oyun kategorileri bölümü -->
-    <section class="categories" id="categories">
-        <h2 class="section-title">Kategoriler</h2>
-        <div class="category-grid">
-            <!-- Kategoriler dinamik olarak JavaScript ile yüklenecek -->
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Categories Section -->
+        <section class="categories" id="categories">
+            <h2 class="section-title">Kategoriler</h2>
+            <div class="category-grid" id="category-grid">
+                <!-- Categories loaded dynamically -->
+            </div>
+        </section>
 
-    <!-- Popüler oyunlar bölümü -->
-    <section class="popular-games" id="popular">
-        <h2 class="section-title">Popüler Oyunlar</h2>
-        <div class="games-grid">
-            <!-- Popüler oyunlar dinamik olarak JavaScript ile yüklenecek -->
-        </div>
-    </section>
+        <!-- Popular Games Section -->
+        <section class="popular-games" id="popular">
+            <div class="section-header">
+                <h2 class="section-title">Popüler Oyunlar</h2>
+                <a href="#" class="view-all">Tümünü Gör</a>
+            </div>
+            <div class="games-grid" id="popular-games-grid">
+                <!-- Popular games loaded dynamically -->
+            </div>
+        </section>
 
-    <!-- Yeni oyunlar bölümü -->
-    <section class="new-games" id="new">
-        <h2 class="section-title">Yeni Eklenenler</h2>
-        <div class="games-grid">
-            <!-- Yeni oyunlar dinamik olarak JavaScript ile yüklenecek -->
-        </div>
-    </section>
+        <!-- New Games Section -->
+        <section class="new-games" id="new">
+            <div class="section-header">
+                <h2 class="section-title">Yeni Eklenenler</h2>
+                <a href="#" class="view-all">Tümünü Gör</a>
+            </div>
+            <div class="games-grid" id="new-games-grid">
+                <!-- New games loaded dynamically -->
+            </div>
+        </section>
 
-    <!-- Oyun iframe'i (tam ekran oynatma için) -->
+        <!-- Pagination Controls (for search results) -->
+        <div class="pagination hidden" id="pagination">
+            <button id="prev-page"><i class="fas fa-chevron-left"></i></button>
+            <span id="page-info">Sayfa 1</span>
+            <button id="next-page"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+    <!-- Game Player Modal -->
     <div class="game-container hidden" id="game-container">
         <div class="game-header">
             <h3 id="game-title">Oyun Adı</h3>
-            <button id="fullscreen-btn"><i class="fas fa-expand"></i></button>
-            <button id="close-game-btn"><i class="fas fa-times"></i></button>
+            <div class="game-actions">
+                <button id="fullscreen-btn" title="Tam ekran"><i class="fas fa-expand"></i></button>
+                <button id="close-game-btn" title="Kapat"><i class="fas fa-times"></i></button>
+            </div>
         </div>
-        <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+        <div class="game-frame-container">
+            <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
 
-    <!-- Footer - Alt bilgi -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="Oyun Portalı Logo">
+                <img src="assets/images/logo.svg" alt="Oyun Portalı Logo" width="40" height="40">
                 <h3>Oyun Portalı</h3>
             </div>
             <div class="footer-links">
@@ -99,10 +130,10 @@
             <div class="footer-social">
                 <h4>Sosyal Medya</h4>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -111,8 +142,10 @@
         </div>
     </footer>
 
-    <!-- JavaScript dosyaları -->
-    <script src="js/games.js"></script>
-    <script src="js/script.js"></script>
+    <!-- JavaScript -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
