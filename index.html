@@ -1,276 +1,118 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <!-- Meta etiketleri - SEO ve görüntüleme ayarları -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oyun Dünyası - 4000+ Oyun</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <meta name="description" content="Oyun Portalı - 4000'den fazla ücretsiz oyun!">
+    <title>Oyun Portalı - 4000+ Ücretsiz Oyun</title>
+    
+    <!-- Favicon - Site logosu tarayıcı sekmesinde gözükür -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- CSS dosyası bağlantısı -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome - İkonlar için -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Oyun Dünyası</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Ana Sayfa</a></li>
-                    <li><a href="#">Kategoriler</a></li>
-                    <li><a href="#">En Popüler</a></li>
-                    <li><a href="#">Yeni Eklenenler</a></li>
-                    <li><a href="#">İletişim</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Oyun ara...">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </div>
+    <!-- Üst navigasyon çubuğu -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Oyun Portalı Logo" class="logo">
+            <h1>Oyun Portalı</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Anasayfa</a></li>
+                <li><a href="#categories">Kategoriler</a></li>
+                <li><a href="#popular">Popüler</a></li>
+                <li><a href="#new">Yeni Oyunlar</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Oyun ara..." id="search-input">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>4000'den Fazla Oyun İle Eğlenceye Hazır Olun!</h2>
-            <p>En yeni ve popüler oyunlar burada. Hemen oynamaya başlayın!</p>
-            <button class="btn">Şimdi Oyna</button>
+    <!-- Hero bölümü - Karşılama alanı -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>4000'den Fazla Ücretsiz Oyun!</h2>
+            <p>En sevdiğin oyunları tam ekran oyna, rekor kır, eğlen!</p>
+            <button class="cta-button">Hemen Oyna</button>
         </div>
     </section>
 
-    <section class="categories">
-        <div class="container">
-            <h2>Oyun Kategorileri</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <img src="/api/placeholder/300/200" alt="Aksiyon Oyunları">
-                    <h3>Aksiyon</h3>
-                    <p>250+ Oyun</p>
-                </div>
-                <div class="category-card">
-                    <img src="/api/placeholder/300/200" alt="Macera Oyunları">
-                    <h3>Macera</h3>
-                    <p>180+ Oyun</p>
-                </div>
-                <div class="category-card">
-                    <img src="/api/placeholder/300/200" alt="Strateji Oyunları">
-                    <h3>Strateji</h3>
-                    <p>320+ Oyun</p>
-                </div>
-                <div class="category-card">
-                    <img src="/api/placeholder/300/200" alt="Spor Oyunları">
-                    <h3>Spor</h3>
-                    <p>150+ Oyun</p>
-                </div>
-                <div class="category-card">
-                    <img src="/api/placeholder/300/200" alt="Bulmaca Oyunları">
-                    <h3>Bulmaca</h3>
-                    <p>420+ Oyun</p>
-                </div>
-                <div class="category-card">
-                    <img src="/api/placeholder/300/200" alt="Simulasyon Oyunları">
-                    <h3>Simulasyon</h3>
-                    <p>190+ Oyun</p>
-                </div>
-            </div>
+    <!-- Oyun kategorileri bölümü -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Kategoriler</h2>
+        <div class="category-grid">
+            <!-- Kategoriler dinamik olarak JavaScript ile yüklenecek -->
         </div>
     </section>
 
-    <section class="popular-games">
-        <div class="container">
-            <h2>En Popüler Oyunlar</h2>
-            <div class="games-grid">
-                <!-- Bu kısım veritabanından çekilecek oyunlar ile doldurulacak -->
-                <!-- Örnek oyun kartı yapısı: -->
-                <div class="game-card">
-                    <div class="game-image">
-                        <img src="/api/placeholder/200/150" alt="Oyun 1">
-                        <div class="overlay">
-                            <button class="play-btn">Oyna</button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>Oyun Adı 1</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.5</span>
-                        </div>
-                        <p class="category">Aksiyon, Macera</p>
-                    </div>
-                </div>
-                <!-- Oyun kartı örneği sonu -->
-                
-                <!-- Örnek olarak 5 oyun daha ekleyelim -->
-                <div class="game-card">
-                    <div class="game-image">
-                        <img src="/api/placeholder/200/150" alt="Oyun 2">
-                        <div class="overlay">
-                            <button class="play-btn">Oyna</button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>Oyun Adı 2</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>4.0</span>
-                        </div>
-                        <p class="category">Strateji</p>
-                    </div>
-                </div>
-                
-                <div class="game-card">
-                    <div class="game-image">
-                        <img src="/api/placeholder/200/150" alt="Oyun 3">
-                        <div class="overlay">
-                            <button class="play-btn">Oyna</button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>Oyun Adı 3</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <p class="category">Bulmaca</p>
-                    </div>
-                </div>
-                
-                <div class="game-card">
-                    <div class="game-image">
-                        <img src="/api/placeholder/200/150" alt="Oyun 4">
-                        <div class="overlay">
-                            <button class="play-btn">Oyna</button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>Oyun Adı 4</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>3.0</span>
-                        </div>
-                        <p class="category">Spor, Simülasyon</p>
-                    </div>
-                </div>
-                
-                <div class="game-card">
-                    <div class="game-image">
-                        <img src="/api/placeholder/200/150" alt="Oyun 5">
-                        <div class="overlay">
-                            <button class="play-btn">Oyna</button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>Oyun Adı 5</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <i class="far fa-star"></i>
-                            <span>3.5</span>
-                        </div>
-                        <p class="category">Macera</p>
-                    </div>
-                </div>
-                
-                <div class="game-card">
-                    <div class="game-image">
-                        <img src="/api/placeholder/200/150" alt="Oyun 6">
-                        <div class="overlay">
-                            <button class="play-btn">Oyna</button>
-                        </div>
-                    </div>
-                    <div class="game-info">
-                        <h3>Oyun Adı 6</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.5</span>
-                        </div>
-                        <p class="category">Aksiyon, Strateji</p>
-                    </div>
-                </div>
-            </div>
-            <div class="view-more">
-                <button class="btn">Daha Fazla Oyun Göster</button>
-            </div>
+    <!-- Popüler oyunlar bölümü -->
+    <section class="popular-games" id="popular">
+        <h2 class="section-title">Popüler Oyunlar</h2>
+        <div class="games-grid">
+            <!-- Popüler oyunlar dinamik olarak JavaScript ile yüklenecek -->
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="container">
-            <h2>Yeni Oyunlardan Haberdar Olun</h2>
-            <p>En yeni oyunlar ve güncellemeler için bültenimize abone olun.</p>
-            <form>
-                <input type="email" placeholder="E-posta adresiniz">
-                <button type="submit" class="btn">Abone Ol</button>
-            </form>
+    <!-- Yeni oyunlar bölümü -->
+    <section class="new-games" id="new">
+        <h2 class="section-title">Yeni Eklenenler</h2>
+        <div class="games-grid">
+            <!-- Yeni oyunlar dinamik olarak JavaScript ile yüklenecek -->
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h3>Hakkımızda</h3>
-                    <p>Oyun Dünyası, 4000'den fazla oyun içeren Türkiye'nin en büyük çevrimiçi oyun platformudur.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section links">
-                    <h3>Hızlı Bağlantılar</h3>
-                    <ul>
-                        <li><a href="#">Ana Sayfa</a></li>
-                        <li><a href="#">Oyunlar</a></li>
-                        <li><a href="#">Kategoriler</a></li>
-                        <li><a href="#">En Popüler</a></li>
-                        <li><a href="#">Yeni Eklenenler</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact">
-                    <h3>İletişim</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Adres: İstanbul, Türkiye</p>
-                    <p><i class="fas fa-phone"></i> Telefon: +90 123 456 78 90</p>
-                    <p><i class="fas fa-envelope"></i> E-posta: info@oyundunyasi.com</p>
-                </div>
-                <div class="footer-section newsletter">
-                    <h3>Bülten</h3>
-                    <p>Güncellemeler için abone olun</p>
-                    <form>
-                        <input type="email" placeholder="E-posta adresiniz">
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
+    <!-- Oyun iframe'i (tam ekran oynatma için) -->
+    <div class="game-container hidden" id="game-container">
+        <div class="game-header">
+            <h3 id="game-title">Oyun Adı</h3>
+            <button id="fullscreen-btn"><i class="fas fa-expand"></i></button>
+            <button id="close-game-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Footer - Alt bilgi -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Oyun Portalı Logo">
+                <h3>Oyun Portalı</h3>
+            </div>
+            <div class="footer-links">
+                <h4>Bağlantılar</h4>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></li>
+                    <li><a href="#">Kullanım Şartları</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Sosyal Medya</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Oyun Dünyası - Tüm Hakları Saklıdır.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Oyun Portalı. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript dosyaları -->
+    <script src="js/games.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
