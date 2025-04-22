@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Popüler HTML5 Oyun Portalı</title>
+  <style>
+    body{margin:0;padding:0;font-family:Arial,sans-serif;background:#f4f4f4}
+    header{background:#333;color:#fff;padding:20px;text-align:center}
+    .tags{display:flex;flex-wrap:wrap;justify-content:center;padding:10px;background:#fff}
+    .tag{margin:5px;padding:8px 12px;border-radius:20px;background:#e0e0e0;cursor:pointer;user-select:none}
+    .tag.active{background:#007bff;color:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;padding:20px}
+    .card{background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);overflow:hidden;display:flex;flex-direction:column}
+    .card h3{margin:10px;font-size:1.1em}
+    .card iframe{border:none;width:100%;height:200px;flex-grow:1}
+    .card a{display:block;text-align:center;padding:8px;background:#007bff;color:#fff;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Popüler HTML5 Oyun Portalı</h1>
+    <p>Etiketlere tıklayarak oyunları filtreleyin</p>
+  </header>
+  <div class="tags" id="tags"></div>
+  <div class="grid" id="games"></div>
+
+  <script>
+    // 100 örnek oyun; url'leri gerçek embed/linklerle değiştirin
+    const games = Array.from({length:100},(_,i)=>({
+      title: `Oyun ${i+1}`,
+      tags: (i%3===0?['aksiyon','3D']:i%3===1?['zihin','bulmaca']:['yarış','spor']),
+      url: `https://example.com/embed/game${i+1}`
+    }));
+
+    const allTags = [...new Set(games.flatMap(g=>g.tags))].sort();
+    const tagsEl = document.getElementById('tags');
+    const gamesEl = document.getElementById('games');
+    const active = new Set();
+
+    // Tag butonları
+    allTags.forEach(tag=>{
+      const btn = document.createElement('div');
+      btn.textContent = tag;
+      btn.className = 'tag';
+      btn.onclick = ()=>{
+        btn.classList.toggle('active');
+        active.has(tag)?active.delete(tag):active.add(tag);
+        render();
+      };
+      tagsEl.appendChild(btn);
+    });
+
+    function render(){
+      gamesEl.innerHTML = '';
+      games
+        .filter(g=>active.size===0 || [...active].every(t=>g.tags.includes(t)))
+        .forEach(g=>{
+          const c = document.createElement('div');
+          c.className='card';
+          c.innerHTML=`
+            <h3>${g.title}</h3>
+            <iframe src="${g.url}" allowfullscreen></iframe>
+            <a href="${g.url}" target="_blank">Oyunu Başlat</a>
+          `;
+          gamesEl.appendChild(c);
+        });
+    }
+
+    // İlk gösterim
+    render();
+  </script>
+</body>
+</html>
