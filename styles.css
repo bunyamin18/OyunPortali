@@ -1,34 +1,77 @@
-/* Genel stil ayarları */
+/* Reset & Base Styles */
 :root {
-    --primary-color: #ff6b6b;
-    --secondary-color: #4ecdc4;
-    --dark-color: #292f36;
-    --light-color: #f7fff7;
-    --accent-color: #ffd166;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --primary: #FF6B6B;
+    --primary-dark: #E05555;
+    --secondary: #4ECDC4;
+    --dark: #292F36;
+    --light: #F7FFF7;
+    --accent: #FFD166;
+    --gray: #6C757D;
+    --light-gray: #F8F9FA;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Navigasyon çubuğu stilleri */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 5px solid var(--light-gray);
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
     background-color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -42,7 +85,7 @@ body {
 
 .logo {
     height: 50px;
-    width: auto;
+    width: 50px;
 }
 
 .nav-links {
@@ -53,13 +96,28 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark-color);
+    color: var(--dark);
     font-weight: 600;
-    transition: color 0.3s;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--primary);
 }
 
 .search-container {
@@ -72,28 +130,44 @@ body {
     border: 1px solid #ddd;
     border-radius: 20px 0 0 20px;
     outline: none;
+    width: 250px;
+    transition: var(--transition);
+}
+
+#search-input:focus {
+    border-color: var(--primary);
 }
 
 #search-btn {
     padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: var(--transition);
 }
 
 #search-btn:hover {
-    background-color: #ff5252;
+    background-color: var(--primary-dark);
 }
 
-/* Hero bölümü stilleri */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--dark);
+    cursor: pointer;
+}
+
+/* Hero Section */
 .hero {
     height: 70vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: white;
     display: flex;
     align-items: center;
@@ -105,38 +179,49 @@ body {
 .hero-content h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
     padding: 1rem 2rem;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 30px;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
 }
 
 .cta-button:hover {
-    background-color: #ff5252;
+    background-color: var(--primary-dark);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-lg);
 }
 
-/* Bölüm başlıkları */
+/* Main Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+/* Section Titles */
 .section-title {
     text-align: center;
-    margin: 3rem 0;
+    margin-bottom: 2rem;
     font-size: 2.5rem;
-    color: var(--dark-color);
+    color: var(--dark);
     position: relative;
+    display: inline-block;
 }
 
 .section-title::after {
@@ -145,94 +230,114 @@ body {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
+    width: 80px;
     height: 4px;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
 }
 
-/* Kategoriler grid */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.view-all {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Category Grid */
 .category-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
-    padding: 0 5%;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .category-card {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
     text-align: center;
     cursor: pointer;
 }
 
 .category-card:hover {
     transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
 }
 
 .category-img {
     width: 100%;
-    height: 120px;
+    height: 150px;
     object-fit: cover;
 }
 
 .category-name {
-    padding: 1rem;
+    padding: 1.5rem;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
-/* Oyunlar grid */
+/* Games Grid */
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    padding: 0 5%;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .game-card {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: all 0.3s;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
     cursor: pointer;
 }
 
 .game-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
 .game-thumbnail {
     width: 100%;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
 }
 
 .game-info {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .game-title {
     font-weight: bold;
     margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .game-category {
-    color: #666;
+    color: var(--gray);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
 .game-rating {
-    color: var(--accent-color);
+    color: var(--accent);
+    font-weight: bold;
 }
 
-/* Oyun oynatıcı container */
+/* Game Container */
 .game-container {
     position: fixed;
     top: 0;
@@ -243,38 +348,89 @@ body {
     z-index: 2000;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
 }
 
-.game-container.hidden {
-    display: none;
+.game-container.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .game-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: var(--dark-color);
+    padding: 1rem 2rem;
+    background-color: var(--dark);
     color: white;
+}
+
+.game-actions {
+    display: flex;
+    gap: 1rem;
 }
 
 #fullscreen-btn, #close-game-btn {
     background: none;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    margin-left: 1rem;
+    transition: var(--transition);
+    padding: 0.5rem;
+}
+
+#fullscreen-btn:hover, #close-game-btn:hover {
+    color: var(--primary);
+}
+
+.game-frame-container {
+    flex-grow: 1;
+    position: relative;
 }
 
 #game-frame {
-    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border: none;
 }
 
-/* Footer stilleri */
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pagination button:hover {
+    background-color: var(--primary-dark);
+}
+
+.pagination button:disabled {
+    background-color: var(--gray);
+    cursor: not-allowed;
+}
+
+/* Footer */
 .footer {
-    background-color: var(--dark-color);
+    background-color: var(--dark);
     color: white;
     padding: 3rem 5% 1rem;
 }
@@ -282,7 +438,7 @@ body {
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     margin-bottom: 2rem;
 }
 
@@ -298,7 +454,7 @@ body {
 }
 
 .footer-links h4, .footer-social h4 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1.2rem;
 }
 
@@ -307,60 +463,113 @@ body {
 }
 
 .footer-links li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .footer-links a {
     color: #ddd;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: var(--transition);
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: var(--primary);
+    padding-left: 5px;
 }
 
 .social-icons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .social-icons a {
     color: white;
     font-size: 1.5rem;
-    transition: color 0.3s;
+    transition: var(--transition);
 }
 
 .social-icons a:hover {
-    color: var(--primary-color);
+    color: var(--primary);
+    transform: translateY(-3px);
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 2rem;
     border-top: 1px solid #444;
 }
 
-/* Responsive tasarım */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
         padding: 1rem;
     }
 
     .nav-links {
-        margin: 1rem 0;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 2rem;
+        gap: 2rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    #search-input {
+        width: 180px;
     }
 
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .hero-content p {
         font-size: 1.2rem;
     }
 
+    .category-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
     .section-title {
         font-size: 2rem;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 }
