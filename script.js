@@ -8,9 +8,11 @@ const games = Array.from({length: 4000}, (_, i) => {
   return {
     id,
     title: `Oyun ${id}`,
-    url: `https://example.com/games/game${id}.html`,
-    thumbnail: `https://example.com/games/thumbnails/game${id}.png`,
-    tags: id % 2 === 0 ? ['action', 'adventure'] : ['puzzle', 'kids']
+    // hepsi tek bir şablon sayfada açılacak:
+    url: `game.html?id=${id}`,
+    // placeholder.com servisiyle her oyuna canlı resim
+    thumbnail: `https://via.placeholder.com/150?text=Oyun+${id}`,
+    tags: id % 2 === 0 ? ['action','adventure'] : ['puzzle','kids']
   };
 });
 
@@ -36,7 +38,7 @@ tagFilter.addEventListener('change', () => {
 
 randomBtn.addEventListener('click', () => {
   const rand = games[Math.floor(Math.random() * games.length)];
-  window.open(rand.url, '_blank');
+  window.location.href = rand.url;
 });
 
 function displayGames(list) {
@@ -48,7 +50,7 @@ function displayGames(list) {
       <img src="${g.thumbnail}" alt="${g.title}">
       <h3>${g.title}</h3>
     `;
-    card.onclick = () => window.open(g.url, '_blank');
+    card.onclick = () => window.location.href = g.url;
     gameGrid.appendChild(card);
   });
 }
