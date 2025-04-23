@@ -2,16 +2,15 @@ const gameGrid = document.getElementById('gameGrid');
 const tagFilter = document.getElementById('tagFilter');
 const randomBtn = document.getElementById('randomBtn');
 
-// 1’den 4000’e kadar otomatik oyun üret
-const games = Array.from({length: 4000}, (_, i) => {
+// 1’den 4000’e kadar oyun manifest’i
+const games = Array.from({ length: 4000 }, (_, i) => {
   const id = i + 1;
   return {
     id,
     title: `Oyun ${id}`,
-    // hepsi tek bir şablon sayfada açılacak:
+    // Dinamik loader: game.html şablonuna id parametresi
     url: `game.html?id=${id}`,
-    // placeholder.com servisiyle her oyuna canlı resim
-    thumbnail: `https://via.placeholder.com/150?text=Oyun+${id}`,
+    thumbnail: `games/${id}/thumbnail.png`,
     tags: id % 2 === 0 ? ['action','adventure'] : ['puzzle','kids']
   };
 });
