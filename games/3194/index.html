@@ -1,0 +1,11 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><title>Oyun 3194</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+    <style>body{margin:0;}canvas{display:block;}</style></head><body>
+    <script>
+      const config={ type:Phaser.AUTO, width:480, height:320, parent:null,
+        scene:{ preload(){this.load.image('logo','thumbnail.png');},
+                create(){const logo=this.add.image(240,160,'logo');this.tweens.add({targets:logo,y:50,duration:2000,yoyo:true,loop:-1});}
+        }
+      };
+      new Phaser.Game(config);
+    </script></body></html>

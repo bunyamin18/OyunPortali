@@ -1,0 +1,15 @@
+{
+  "name": "oyunportali",
+  "version": "1.0.0",
+  "main": "generate-and-zip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "yazl": "^3.3.1"
+  }
+}
