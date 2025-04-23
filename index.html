@@ -1,108 +1,30 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oyun Portalı - 4000+ Ücretsiz Oyun</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oyun Portalı</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Yükleme Ekranı -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loader"></div>
-    </div>
+  <header>
+    <img src="logo.png" alt="Oyun Portalı Logo" id="logo"/>
+    <h1>Oyun Portalı</h1>
+  </header>
 
-    <!-- Navigasyon -->
-    <header class="navbar">
-        <div class="logo-container">
-            <img src="assets/images/logo.svg" alt="Oyun Portalı" class="logo">
-            <h1>Oyun Portalı</h1>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Anasayfa</a></li>
-                <li><a href="#categories">Kategoriler</a></li>
-                <li><a href="#popular">Popüler</a></li>
-                <li><a href="#new">Yeni Oyunlar</a></li>
-            </ul>
-        </nav>
-        <div class="search-container">
-            <input type="text" placeholder="Oyun ara..." id="search-input">
-            <button id="search-btn"><i class="fas fa-search"></i></button>
-        </div>
-    </header>
+  <div class="controls">
+    <select id="tagFilter">
+      <option value="all">Tüm Etiketler</option>
+    </select>
+    <button id="randomBtn">🎲 Rastgele Oyun</button>
+  </div>
 
-    <!-- Hero Bölümü -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h2>4000'den Fazla Ücretsiz Oyun!</h2>
-            <p>Favori oyunlarını tam ekran oyna, rekor kır, eğlenceye katıl!</p>
-            <button class="cta-button" id="random-game-btn">Rastgele Oyun Başlat</button>
-        </div>
-    </section>
+  <div id="gameGrid"></div>
 
-    <!-- Ana İçerik -->
-    <main class="container">
-        <!-- Kategoriler -->
-        <section class="categories" id="categories">
-            <h2 class="section-title">Kategoriler</h2>
-            <div class="category-grid" id="category-grid"></div>
-        </section>
+  <footer>
+    <p>&copy; 2025 Oyun Portalı</p>
+  </footer>
 
-        <!-- Popüler Oyunlar -->
-        <section class="games-section" id="popular">
-            <div class="section-header">
-                <h2 class="section-title">Popüler Oyunlar</h2>
-                <a href="#" class="view-all">Tümünü Gör</a>
-            </div>
-            <div class="games-grid" id="popular-games-grid"></div>
-        </section>
-
-        <!-- Yeni Oyunlar -->
-        <section class="games-section" id="new">
-            <div class="section-header">
-                <h2 class="section-title">Yeni Eklenenler</h2>
-                <a href="#" class="view-all">Tümünü Gör</a>
-            </div>
-            <div class="games-grid" id="new-games-grid"></div>
-        </section>
-    </main>
-
-    <!-- Oyun Oynatıcı -->
-    <div class="game-container hidden" id="game-container">
-        <div class="game-header">
-            <h3 id="game-title">Oyun Adı</h3>
-            <div class="game-actions">
-                <button id="fullscreen-btn"><i class="fas fa-expand"></i></button>
-                <button id="close-game-btn"><i class="fas fa-times"></i></button>
-            </div>
-        </div>
-        <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/images/logo.svg" alt="Oyun Portalı">
-                <h3>Oyun Portalı</h3>
-            </div>
-            <div class="footer-links">
-                <h4>Bağlantılar</h4>
-                <ul>
-                    <li><a href="#">Hakkımızda</a></li>
-                    <li><a href="#">İletişim</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Oyun Portalı</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript Dosyaları -->
-    <script src="assets/js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
