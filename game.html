@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Oyun Detayı</title>
+  <title>Oyun</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    main { padding: 40px; }
-    #gameFrame { width: 100%; height: 80vh; border: 2px solid #333; }
+    main { padding: 20px; text-align: center; }
+    iframe { width: 100%; height: 80vh; border: none; }
   </style>
 </head>
 <body>
   <header><h1 id="gameTitle">Oyun</h1></header>
   <main>
-    <!-- Gerçek oyun embed edilebilir; şuanda placeholder -->
-    <iframe id="gameFrame" srcdoc="<p style='font-family:Comic Sans MS; text-align:center; margin-top:40vh;'>Bu bir placeholder oyun alanıdır.</p>"></iframe>
+    <iframe id="gameFrame"></iframe>
   </main>
-  <footer>
-    <button onclick="history.back()">← Geri</button>
-  </footer>
+  <footer><button onclick="history.back()">← Geri</button></footer>
 
   <script>
-    // URL param'den id al
+    // MDN: URLSearchParams ile id parametresini alıyoruz :contentReference[oaicite:2]{index=2}
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
     document.getElementById('gameTitle').textContent = id ? `Oyun ${id}` : 'Bilinmeyen Oyun';
-    // İstersen buraya gerçek oyun embed kodu yerleştir
+
+    // Oyun dosyası: /games/{id}/index.html yolu
+    const gamePath = id ? `games/${id}/index.html` : '';
+    document.getElementById('gameFrame').src = gamePath;
   </script>
 </body>
 </html>
