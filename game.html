@@ -10,31 +10,34 @@
 <body>
   <header><h1 id="gameTitle">Oyun</h1></header>
   <main>
-    <!-- Phaser oyunu doğrudan yüklenir -->
     <div id="gameContainer"></div>
   </main>
   <footer><button onclick="history.back()">← Geri</button></footer>
 
   <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
   <script>
-    // URLSearchParams ile id al :contentReference[oaicite:7]{index=7}
-    const id = new URLSearchParams(location.search).get('id');
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id');
     document.getElementById('gameTitle').textContent = id ? `Oyun ${id}` : 'Bilinmeyen Oyun';
 
-    // Phaser config
+    const thumbPath = id ? `games/${id}/thumbnail.png` : '';
     const config = {
       type: Phaser.AUTO,
       width: 480, height: 320,
       parent: 'gameContainer',
       scene: {
-        preload() { this.load.image('thumb', 'thumbnail.png'); },
+        preload() {
+          if (thumbPath) this.load.image('thumb', thumbPath);
+        },
         create() {
-          const logo = this.add.image(240,160,'thumb');
-          this.tweens.add({ targets: logo, y:50, duration:2000, yoyo:true, loop:-1 });
+          if (thumbPath) {
+            const logo = this.add.image(240,160,'thumb');
+            this.tweens.add({ targets: logo, y:50, duration:2000, yoyo:true, loop:-1 });
+          }
         }
       }
     };
-    new Phaser.Game(config);  // Oyun başlatılır :contentReference[oaicite:8]{index=8}
+    new Phaser.Game(config);
   </script>
 </body>
 </html>

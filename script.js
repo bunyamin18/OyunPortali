@@ -5,7 +5,7 @@ const randomBtn = document.getElementById('randomBtn');
 // 1’den 4000’e oyun manifest’i
 const games = Array.from({ length: 4000 }, (_, i) => ({
   id: i + 1,
-  url: `games/${i+1}/index.html`,
+  url: `game.html?id=${i+1}`,
   thumbnail: `games/${i+1}/thumbnail.png`,
   tags: (i + 1) % 2 === 0 ? ['action','adventure'] : ['puzzle','kids']
 }));
@@ -25,8 +25,8 @@ function display(list) {
   list.forEach(g => {
     const card = document.createElement('div');
     card.className = 'game-card';
-    card.innerHTML = `<img src="${g.thumbnail}" alt="${g.title}"><h3>Oyun ${g.id}</h3>`;
-    card.onclick = () => location.href = g.url;             // Aynı sitede açar :contentReference[oaicite:6]{index=6}
+    card.innerHTML = `<img src="${g.thumbnail}" alt="Oyun ${g.id}"><h3>Oyun ${g.id}</h3>`;
+    card.onclick = () => location.href = g.url;
     gameGrid.appendChild(card);
   });
 }
